@@ -6,6 +6,8 @@ import Link from "next/link";
 interface PostListPaginationProps {
   currentPage: number;
   totalPages: number;
+  hasNextPage?: boolean;
+  hasPrevPage?: boolean;
   channelId?: string | null;
   view?: string | null;
   q?: string;
@@ -13,7 +15,9 @@ interface PostListPaginationProps {
 
 export function PostListPagination({ 
   currentPage, 
-  totalPages, 
+  totalPages,
+  hasNextPage,
+  hasPrevPage,
   channelId, 
   view,
   q 
