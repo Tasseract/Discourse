@@ -23,7 +23,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 import { UserRole } from '@/lib/roles';
-import canViewChannel from '@/lib/channelAccess';
+import { canViewChannel } from '@/lib/channelAccess';
 import * as groupsLib from '@/lib/groups';
 
 export default async function ChannelsList() {

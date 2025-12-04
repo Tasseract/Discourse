@@ -3,7 +3,6 @@ import logo from "@/assets/discourse.svg";
 import Link from "next/link";
 import SettingsMenu from "@/components/SettingsMenu";
 import NavTabs from "@/components/NavTabs";
-import AccountSettingsForm from "@/components/AccountSettingsForm";
 import { DatabaseStatusBadge } from "@/components/DatabaseStatusBadge";
 
 export default function SettingsPage() {
@@ -40,7 +39,7 @@ export default function SettingsPage() {
           </div>
 
           <div className="px-4 flex-1 bg-white/50 dark:bg-black/30">
-            <AccountSettingsForm />
+            <div className="py-8 text-center text-gray-500">Settings coming soon...</div>
           </div>
         </main>
 
