@@ -164,8 +164,8 @@ export async function POST(req: Request) {
       const ch = await channelsCollection.findOne({ _id: new ObjectId(channelId) });
       if (!ch) return NextResponse.json({ error: 'Channel not found' }, { status: 404 });
       // remove from pending and add to moderators
-      await channelsCollection.updateOne({ _id: new ObjectId(channelId) }, { $pull: { pendingModerators: applicantId } });
-      await channelsCollection.updateOne({ _id: new ObjectId(channelId) }, { $addToSet: { moderators: applicantId } });
+      await channelsCollection.updateOne({ _id: new ObjectId(channelId) }, { $pull: { pendingModerators: applicantId } } as any);
+      await channelsCollection.updateOne({ _id: new ObjectId(channelId) }, { $addToSet: { moderators: applicantId } } as any);
       // log activity: approver approved applicant
       try {
         const { logActivity } = await import('@/lib/logActivity');
