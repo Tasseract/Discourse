@@ -1,10 +1,10 @@
 "use client"
 
-import { Toaster } from "sonner"
+import { Toaster as SonnerToaster } from "sonner"
 
 export function Sonner() {
   return (
-    <Toaster
+    <SonnerToaster
       position="top-center"
       richColors
       closeButton
@@ -12,3 +12,5 @@ export function Sonner() {
     />
   )
 }
+
+export const Toaster = Sonner
