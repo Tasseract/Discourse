@@ -1,5 +1,4 @@
 import * as React from "react"
-import * as PaginationPrimitive from "@radix-ui/react-primitive"
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
 
 import { ButtonProps, Button } from "@/components/ui/button"
