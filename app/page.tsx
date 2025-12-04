@@ -95,9 +95,12 @@ export default async function Home({ searchParams }: HomeProps) {
                 />
               </div>
 
-              <h1 className="m-0 text-[#3c3c3c] dark:text-[#D9D9D9] text-2xl sm:text-3xl font-semibold leading-none tracking-tighter md:text-3xl md:leading-none flex-1 min-w-0 truncate">
-                {DATA.title}
-              </h1>
+              <div className="flex items-center gap-2 flex-1 min-w-0">
+                <h1 className="m-0 text-[#3c3c3c] dark:text-[#D9D9D9] text-2xl sm:text-3xl font-semibold leading-none tracking-tighter md:text-3xl md:leading-none truncate">
+                  {DATA.title}
+                </h1>
+                <DatabaseStatusBadge />
+              </div>
 
               <div className="flex ml-auto">
                 <AuthButton className={DATA.buttons.primary.className} />
@@ -145,7 +148,6 @@ export default async function Home({ searchParams }: HomeProps) {
 
           <footer className="p-5 pb-0 flex flex-col sm:flex-row items-start justify-between sm:gap-6">
             <div className="text-sm text-[#61646B] dark:text-[#94979E] flex-1" />
-            <DatabaseStatusBadge />
           </footer>
       </div>
     </div>

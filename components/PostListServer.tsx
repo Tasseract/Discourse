@@ -2,7 +2,7 @@ import { getPosts } from "@/lib/posts";
 import { getDatabase } from "@/lib/mongodb";
 import { getAuth } from "@/lib/auth";
 import { headers } from "next/headers";
-import { canViewChannel, canViewChannelSimple } from '@/lib/channelAccess';
+import { canViewChannel } from '@/lib/channelAccess';
 import PostCard from "./PostCard";
 import { PostListPagination } from "./PostListPagination";
 

@@ -1,38 +1,16 @@
-"use client";
+import { dbConnectionStatus } from "@/lib/connection-status";
 
-import { useEffect, useState } from "react";
-import { Badge } from "@/components/ui/badge";
-
-export function DatabaseStatusBadge() {
-  const [isConnected, setIsConnected] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const checkConnection = async () => {
-      try {
-        const response = await fetch("/api/health", {
-          method: "GET",
-        });
-        setIsConnected(response.ok);
-      } catch {
-        setIsConnected(false);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    checkConnection();
-    const interval = setInterval(checkConnection, 10000);
-    return () => clearInterval(interval);
-  }, []);
-
-  if (isLoading) {
-    return <Badge variant="secondary">Checking...</Badge>;
-  }
-
+export async function DatabaseStatusBadge() {
+  const dbStatus = await dbConnectionStatus();
+  const isConnected = dbStatus === "Database connected";
+  
   return (
-    <Badge variant={isConnected ? "default" : "destructive"}>
-      {isConnected ? "✓ Database Connected" : "✗ Database Disconnected"}
-    </Badge>
+    <div className="inline-flex items-center gap-1.5">
+      <div className={`w-3 h-3 rounded-full flex-shrink-0 ${
+        isConnected 
+          ? "bg-red-500 animate-pulse" 
+          : "bg-red-600"
+      }`} title={dbStatus} />
+    </div>
   );
 }

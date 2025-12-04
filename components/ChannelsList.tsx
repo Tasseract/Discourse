@@ -163,7 +163,7 @@ export default async function ChannelsList() {
             {joinedChannels.map((ch) => {
               const canView = canViewLookup[ch._id] || false;
               return (
-                <div key={ch._id} className="border rounded p-3 flex items-start justify-between bg-white/60 dark:bg-black/30">
+                <div key={ch._id} className="border border-gray-100 dark:border-neutral-800 rounded p-3 flex items-start justify-between bg-white/40 dark:bg-black/20 hover:bg-white/60 dark:hover:bg-black/40 transition-colors">
                   {canView ? (
                     <Link href={`/?channel=${encodeURIComponent(ch._id)}`} className="flex-1 min-w-0">
                       <div>
@@ -207,7 +207,7 @@ export default async function ChannelsList() {
         </div>
       )}
 
-      <hr className="my-3" />
+      <hr className="border border-gray-100 dark:border-neutral-800 rounded my-3" />
 
       {/* Category groups in the requested order */}
       <div className="space-y-6">
@@ -221,7 +221,7 @@ export default async function ChannelsList() {
                 {list.map((ch) => {
                   const canView = canViewLookup[ch._id] || false;
                     return (
-                  <div key={ch._id} className="border rounded p-3 flex items-start justify-between bg-white/60 dark:bg-black/30">
+                  <div key={ch._id} className="border border-gray-100 dark:border-neutral-800 rounded p-3 flex items-start justify-between bg-white/40 dark:bg-black/20 hover:bg-white/60 dark:hover:bg-black/40 transition-colors">
                     {canView ? (
                       <Link href={`/?channel=${encodeURIComponent(ch._id)}`} className="flex-1 min-w-0">
                         <div>
@@ -275,7 +275,7 @@ export default async function ChannelsList() {
               {grouped['other'].map((ch) => {
                 const canView = canViewLookup[ch._id] || false;
                 return (
-                <div key={ch._id} className="border rounded p-3 flex items-start justify-between bg-white/60 dark:bg-black/30">
+                <div key={ch._id} className="border border-gray-100 dark:border-neutral-800 rounded p-3 flex items-start justify-between bg-white/40 dark:bg-black/20 hover:bg-white/60 dark:hover:bg-black/40 transition-colors">
                   {canView ? (
                     <Link href={`/?channel=${encodeURIComponent(ch._id)}`} className="flex-1 min-w-0">
                       <div>

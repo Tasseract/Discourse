@@ -34,17 +34,24 @@ const buttonVariants = cva(
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends React.ComponentPropsWithoutRef<'button'>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const combinedClassName = cn(buttonVariants({ variant, size, className }))
+    
+    if (asChild) {
+      return (
+        <Slot ref={ref} {...(props as any)} className={combinedClassName} />
+      )
+    }
+    
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+      <button
+        className={combinedClassName}
         ref={ref}
         {...props}
       />
